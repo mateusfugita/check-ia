@@ -8,7 +8,6 @@ import PhotoSlider from '../../components/PhotoSlider';
 
 export default function ChosenCountry(){
     const history = useHistory();
-    const [country, setCountry] = useState('');
     const [images, setImages] = useState([]);
     const [ptName, setPtName] = useState('');
 
@@ -17,7 +16,6 @@ export default function ChosenCountry(){
             history.push('/');
         }
         else{
-            setCountry(history.location.data.country);
             setImages(history.location.data.images);
             setPtName(history.location.data.ptName);
         }
