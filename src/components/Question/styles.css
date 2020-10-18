@@ -1,0 +1,29 @@
+.question-block {
+    width: 100%;
+    max-width: 700px;
+}
+
+.answers-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 50px;
+    margin-bottom: 16px;
+}
+
+.answers-range-labels {
+    text-align: center;
+    font-size: 15px;
+}
+
+.btn-answers {
+    background: #E0E0E0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    transition: background-color 0.4s;
+}
+
+.btn-answers:hover {
+    background: #C4C4C4;
+}
