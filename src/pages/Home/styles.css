@@ -1,31 +1,16 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    padding: 0 16px;
-}
-
-header .title {
-    color: #0358FD;
-}
-
-header .subtitle {
+main .subtitle {
     text-align: center;
+    margin-bottom: 30px;
 }
 
-main {
-    padding: 30px 0;
+.questions-container {
+    padding: 30px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
 }
 
-.question-block {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.send-answers {
+    margin-top: 16px;
 }
