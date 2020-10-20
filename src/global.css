@@ -3,3 +3,17 @@
   margin: 0;
   padding: 0;
 }
+
+body, input, button, textarea {
+  font: 500 18px Roboto, sans-serif;
+}
+
+button {
+  background-color: #0358FD;
+  color: #FFF;
+  border-radius: 16px;
+  width: 160px;
+  height: 40px;
+  border-style: none;
+  cursor: pointer;
+}
