@@ -9,7 +9,7 @@ export default function Question({ question, index, handleClickFunction }){
         <div className="question-block">
             <label>{question}</label>
             <div className='answers-container'>
-                <p className='answers-range-labels'>Pouco provável</p>
+                <p className='answers-range-labels'>Discordo totalmente</p>
                 {values.map(value => {
                     return (
                         <button 
@@ -21,7 +21,7 @@ export default function Question({ question, index, handleClickFunction }){
                         ></button>
                     )
                 })}
-                <p className='answers-range-labels'>Muito provável</p>
+                <p className='answers-range-labels'>Concordo totalmente</p>
             </div>
         </div>
     )
