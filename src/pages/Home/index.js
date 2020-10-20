@@ -8,7 +8,19 @@ import Question from '../../components/Question';
 import api from '../../services/api';
 
 export default function Home(){
-    const questions = ['Pergunta 1', 'Pergunta 2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+    const questions = [
+        'Eu não falo muito', 
+        'Eu me sinto confortável perto das pessoas', 
+        'Eu fico estressado facilmente', 
+        'Estou relaxado na maior parte do tempo', 
+        'Tenho pouca preocupação com os outros', 
+        'Estou interessado nas pessoas', 
+        'Estou sempre preparado', 
+        'Deixo meus pertences por aí', 
+        'Eu tenho um vocabulário rico', 
+        'Tenho dificuldade em compreender ideias abstratas', 
+        'Continente que nasceu'
+    ];
     const history = useHistory();
     let answers = Array(questions.length);
     const [token, setToken] = useState('');
