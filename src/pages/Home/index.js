@@ -21,6 +21,7 @@ export default function Home(){
         'Tenho dificuldade em compreender ideias abstratas', 
         'Continente que nasceu'
     ];
+    const continents = ['América do Norte', 'América do Sul', 'Ásia', 'Oceania', 'Europa', 'África'];
     const history = useHistory();
     let answers = Array(questions.length);
     const [token, setToken] = useState('');
@@ -80,6 +81,8 @@ export default function Home(){
     function setAnswerForQuestion(e){
         answers[e.target.name.substring(1)] = e.target.value;
 
+        if(e.target.name.substring(1) === questions.length - 1) return;
+
         const buttonsFromSelectedQuestion = document.getElementsByName(e.target.name);
         buttonsFromSelectedQuestion.forEach(btn => {
             if(btn.className.includes(' active')){
@@ -95,11 +98,30 @@ export default function Home(){
             <Header />
             <main className='questions-container'>
                 <p className='subtitle'>Descubra qual será seu próximo destino de acordo com o seu perfil</p>
-                {questions.map((question, index) => {
+                {questions.slice(0, questions.length -1).map((question, index) => {
                     return (
                         <Question key={index} question={question} index={index} handleClickFunction={setAnswerForQuestion}></Question>
                     )
                 })}
+                <div className="question-block">
+                    <label>{questions[questions.length - 1]}</label>
+                    <div className='continent-answers'>
+                        {continents.map((value, index) => {
+                            return (
+                                <label key={index}>
+                                <input 
+                                    type='radio' 
+                                    key={index}
+                                    id={index + 1}
+                                    name={`q${questions.length - 1}`}
+                                    value={index + 1}
+                                    onClick={setAnswerForQuestion}
+                                /> {value}
+                                </label>
+                            )
+                        })}
+                    </div>
+                </div>
                 <button className='send-answers' onClick={handleSubmit}>Enviar</button>
             </main>
         </>

@@ -11,6 +11,14 @@ main .subtitle {
     flex-direction: column;
 }
 
+.continent-answers {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    padding: 16px 0;
+}
+
 .send-answers {
     margin-top: 16px;
 }
