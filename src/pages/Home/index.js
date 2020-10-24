@@ -48,14 +48,17 @@ export default function Home(){
 
             data.country = await api.post('country/predict', { answers }, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}`,
+                    'Access-Control-Allow-Origin': '*'
                 }
             }).then(async (response) => {
                 const countryNames = await handleRequest('GET', `country?name=${response.data.country}`, null);
                 data.ptName = countryNames.country.ptName;
                 data.abbreviation = countryNames.country.abbreviation;
                 return response.data.country;
-            });
+            })
+
+            data.info = await handleRequest('GET', `country/info/${data.abbreviation}`, null);
 
             data.images = await handleRequest('GET', `country/images/${data.country}`, null);
 
@@ -77,7 +80,8 @@ export default function Home(){
             url,
             data,
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'Access-Control-Allow-Origin': '*'
             }
         }).then(response => {
             return response.data;
@@ -129,9 +133,10 @@ export default function Home(){
                         })}
                     </div>
                 </div>
-                <button className='send-answers' onClick={handleSubmit}>Enviar</button>
-                {loading && 
+                {loading ? 
                     <Loader></Loader>
+                    :
+                    <button className='send-answers' onClick={handleSubmit}>Enviar</button>
                 }
             </main>
         </>
