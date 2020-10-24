@@ -10,6 +10,7 @@ export default function ChosenCountry(){
     const history = useHistory();
     const [images, setImages] = useState([]);
     const [ptName, setPtName] = useState('');
+    const [countryInfo, setCountryInfo] = useState({});
 
     useEffect(() => {
         if(!history.location.data){
@@ -18,6 +19,7 @@ export default function ChosenCountry(){
         else{
             setImages(history.location.data.images);
             setPtName(history.location.data.ptName);
+            setCountryInfo(history.location.data.info);
         }
     }, [history]);
 
@@ -26,9 +28,19 @@ export default function ChosenCountry(){
             <Header />
             <main className='results-container'>
                 <div className='result-text'>
-                    <h3>Seu destino escolhido: {ptName}</h3>
+                    <h2>Seu destino escolhido: {ptName}</h2>
                 </div>
                 <PhotoSlider images={images}/>
+
+                <div className="country-info-container">
+                    <h3>Informações sobre o país</h3>
+                    <ul>
+                        <li><strong>Capital: </strong>{countryInfo['Capital']}</li>
+                        <li><strong>Região: </strong>{countryInfo["Região"]}</li>
+                        <li><strong>Moeda: </strong>{countryInfo['Moeda']}</li>
+                        <li><strong>Língua: </strong>{countryInfo["Língua"]}</li>
+                    </ul>
+                </div>
             </main>
         </>
     )
