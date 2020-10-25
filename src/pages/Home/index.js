@@ -5,6 +5,7 @@ import './styles.css';
 
 import Header from '../../components/Header';
 import Question from '../../components/Question';
+import Loader from '../../components/Loader';
 import api from '../../services/api';
 
 export default function Home(){
@@ -23,8 +24,10 @@ export default function Home(){
     ];
     const continents = ['América do Norte', 'América do Sul', 'Ásia', 'Oceania', 'Europa', 'África'];
     const history = useHistory();
+
     let answers = Array(questions.length);
     const [token, setToken] = useState('');
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const data = {
@@ -35,25 +38,31 @@ export default function Home(){
         api.post('user/authenticate', data).then(response => {
             setToken(response.data.token);
         });
+        setLoading(false);
     }, []);
 
     async function handleSubmit(){
         if(!answers.includes(undefined)){
+            setLoading(true);
             let data = {};
 
             data.country = await api.post('country/predict', { answers }, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${token}`,
+                    'Access-Control-Allow-Origin': '*'
                 }
             }).then(async (response) => {
                 const countryNames = await handleRequest('GET', `country?name=${response.data.country}`, null);
                 data.ptName = countryNames.country.ptName;
                 data.abbreviation = countryNames.country.abbreviation;
                 return response.data.country;
-            });
+            })
+
+            data.info = await handleRequest('GET', `country/info/${data.abbreviation}`, null);
 
             data.images = await handleRequest('GET', `country/images/${data.country}`, null);
 
+            setLoading(false);
             history.push({
                 pathname: '/result',
                 data: data,
@@ -61,6 +70,7 @@ export default function Home(){
         }
         else{
             alert('Responda todas as perguntas para continuar');
+            setLoading(false);
         }
     }
 
@@ -70,7 +80,8 @@ export default function Home(){
             url,
             data,
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'Access-Control-Allow-Origin': '*'
             }
         }).then(response => {
             return response.data;
@@ -122,7 +133,11 @@ export default function Home(){
                         })}
                     </div>
                 </div>
-                <button className='send-answers' onClick={handleSubmit}>Enviar</button>
+                {loading ? 
+                    <Loader></Loader>
+                    :
+                    <button className='send-answers' onClick={handleSubmit}>Enviar</button>
+                }
             </main>
         </>
     )
