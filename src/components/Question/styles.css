@@ -11,8 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 50px;
+    gap: 8px;
+    padding: 16px 0;
     margin-bottom: 16px;
+}
+
+@media (min-width: 400px) {
+    .answers-container {
+        padding: 16px 50px;
+    }
 }
 
 .answers-range-labels {
