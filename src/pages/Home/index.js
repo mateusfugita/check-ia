@@ -109,6 +109,7 @@ export default function Home(){
             <Header />
             <main className='questions-container'>
                 <p className='subtitle'>Descubra qual será seu próximo destino de acordo com o seu perfil</p>
+                <hr />
                 {questions.slice(0, questions.length -1).map((question, index) => {
                     return (
                         <Question key={index} question={question} index={index} handleClickFunction={setAnswerForQuestion}></Question>

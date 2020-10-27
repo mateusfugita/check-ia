@@ -1,6 +1,11 @@
 main .subtitle {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+hr {
+    border-top: 1px solid #0358FD;
+    width: 30%;
 }
 
 .questions-container {
