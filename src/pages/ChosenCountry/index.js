@@ -5,6 +5,7 @@ import './styles.css';
 
 import Header from '../../components/Header';
 import PhotoSlider from '../../components/PhotoSlider';
+import handleRequest from '../../utils/handleRequest';
 
 export default function ChosenCountry(){
     const history = useHistory();
@@ -17,9 +18,16 @@ export default function ChosenCountry(){
             history.push('/');
         }
         else{
-            setImages(history.location.data.images);
+            const token = history.location.data.token;
             setPtName(history.location.data.ptName);
-            setCountryInfo(history.location.data.info);
+
+            handleRequest('GET', `country/info/${history.location.data.abbreviation}`, null, token).then(response => {
+                setCountryInfo(response);
+            });
+
+            handleRequest('GET', `country/images/${history.location.data.country}`, null, token).then(response => {
+                setImages(response);
+            });
         }
     }, [history]);
 
@@ -30,17 +38,19 @@ export default function ChosenCountry(){
                 <div className='result-text'>
                     <h2>Seu destino escolhido: {ptName}</h2>
                 </div>
-                <PhotoSlider images={images}/>
+                {images && <PhotoSlider images={images}/>}
 
-                <div className="country-info-container">
-                    <h3>Informações sobre o país</h3>
-                    <ul>
-                        <li><strong>Capital: </strong>{countryInfo['Capital']}</li>
-                        <li><strong>Região: </strong>{countryInfo["Região"]}</li>
-                        <li><strong>Moeda: </strong>{countryInfo['Moeda']}</li>
-                        <li><strong>Língua: </strong>{countryInfo["Língua"]}</li>
-                    </ul>
-                </div>
+                {countryInfo['Capital'] && (
+                    <div className="country-info-container">
+                        <h3>Informações sobre o país</h3>
+                        <ul>
+                            <li><strong>Capital: </strong>{countryInfo['Capital']}</li>
+                            <li><strong>Região: </strong>{countryInfo["Região"]}</li>
+                            <li><strong>Moeda: </strong>{countryInfo['Moeda']}</li>
+                            <li><strong>Língua: </strong>{countryInfo["Língua"]}</li>
+                        </ul>
+                    </div>
+                )}
             </main>
         </>
     )

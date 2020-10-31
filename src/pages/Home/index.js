@@ -44,7 +44,9 @@ export default function Home(){
     async function handleSubmit(){
         if(!answers.includes(undefined)){
             setLoading(true);
-            let data = {};
+            let data = {
+                token,
+            };
 
             data.country = await api.post('country/predict', { answers }, {
                 headers: {
@@ -57,10 +59,6 @@ export default function Home(){
                 data.abbreviation = countryNames.country.abbreviation;
                 return response.data.country;
             })
-
-            data.info = await handleRequest('GET', `country/info/${data.abbreviation}`, null);
-
-            data.images = await handleRequest('GET', `country/images/${data.country}`, null);
 
             setLoading(false);
             history.push({
