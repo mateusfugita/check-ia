@@ -20,7 +20,7 @@ div#slider figure img {
     width: 20%;
     float: left; 
     max-height: 200px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 div#slider figure { 
