@@ -5,29 +5,58 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 16px 0;
+    border-radius: 16px;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.16);
+    padding: 16px 20px;
+}
+
+.question-block label {
+    font-size: 18px;
 }
 
 .answers-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 50px;
-    margin-bottom: 16px;
+    gap: 8px;
+    padding: 16px 0;
 }
 
 .answers-range-labels {
     text-align: center;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .btn-answers {
     background: #E0E0E0;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     transition: background-color 0.4s;
 }
 
 .active, .btn-answers:hover {
     background: #0358FD;
+}
+
+@media (min-width: 400px) {
+    .question-block label {
+        font-size: 20px;
+    }
+    .answers-container {
+        padding: 16px 20px;
+    }
+    .btn-answers {
+        width: 35px;
+        height: 35px;
+    }
+    .answers-range-labels {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 600px){
+    .answers-container {
+        padding: 16px 50px;
+    }
 }

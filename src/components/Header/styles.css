@@ -1,9 +1,24 @@
 header {
-    margin-top: 20px;
-    padding: 0 16px;
+    background-image: url('../../assets/airport.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+header .header-opaque {
+    padding: 100px 16px;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
 }
 
 header .title {
     color: #0358FD;
     text-align: center;
+}
+
+header .subtitle {
+    text-align: center;
+    margin-top: 20px;
+    color: rgb(245, 245, 245);
 }
