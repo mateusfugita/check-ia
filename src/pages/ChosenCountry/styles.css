@@ -1,5 +1,5 @@
 .results-container {
-    padding: 30px 20px;
+    background-image: url('../../assets/aurora-borealis.jpg');
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +19,10 @@
 }
 
 .country-info-container{
-    margin-top: 16px;
+    padding: 16px 0;
+    background-color: rgba(0,0,0, 0.2);
+    width: 100%;
+    max-width: 1100px;
 }
 
 .country-info-container h3 {
@@ -37,6 +40,7 @@
 
 .country-info-container ul li {
     padding: 4px 0;
+    color: rgb(212, 212, 212);
 }
 
 .country-info-container ul li strong {
