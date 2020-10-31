@@ -4,12 +4,12 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    min-height: 400px;
+    min-height: 500px;
 }
 
 @media(min-width: 600px){
     .results-container {
-        min-height: 350px;
+        min-height: 400px;
     }
 }
 
