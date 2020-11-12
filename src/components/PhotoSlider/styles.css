@@ -33,15 +33,8 @@ div#slider figure {
     animation: 30s slidy infinite; 
 }
 
-@media (min-width: 400px) {
+@media (min-width: 450px) {
     div#slider figure img { 
         max-height: 450px;
     }
 }
-
-/* @media (min-width: 1000px) {
-    div#slider figure img { 
-        max-height: 500px;
-    }
-} */
-    
