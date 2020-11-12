@@ -39,7 +39,7 @@
     background: #0358FD;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 450px) {
     .question-block label {
         font-size: 20px;
     }

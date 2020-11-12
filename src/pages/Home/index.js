@@ -20,7 +20,7 @@ export default function Home(){
         'Deixo meus pertences por aí', 
         'Eu tenho um vocabulário rico', 
         'Tenho dificuldade em compreender ideias abstratas', 
-        'Continente que nasceu'
+        'Continente que tem interesse em visitar'
     ];
     const continents = ['América do Norte', 'América do Sul', 'Ásia', 'Oceania', 'Europa', 'África'];
     const history = useHistory();
