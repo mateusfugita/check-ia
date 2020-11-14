@@ -16,10 +16,10 @@ div#slider {
     max-height: 500px;
 }
 
-div#slider figure img { 
+div#slider figure img {
     width: 20%;
     float: left;
-    max-height: 185px;
+    max-height: 200px;
     object-fit: cover;
 }
 

@@ -1,16 +1,10 @@
 .results-container {
     background-image: url('../../assets/aurora-borealis.jpg');
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    min-height: 500px;
-}
-
-@media(min-width: 600px){
-    .results-container {
-        min-height: 400px;
-    }
+    min-height: calc(100vh - 285px);
 }
 
 .result-text {
