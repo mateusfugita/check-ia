@@ -24,7 +24,7 @@ We created a machine learning model to choose your travel destination based on s
 ## :gear: Prerequisites
 Before you begin, you will need the following tools installed on your machine:
 [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/). 
-In addition, you will need to run the [backend](https://github.com/mateusfugita/check-ia-api) and the [ML API](https://github.com/mateusfugita/check-ia-ml) in your machine before continuing.
+In addition, you will need to run the [back-end](https://github.com/mateusfugita/check-ia-api) and the [ML API](https://github.com/mateusfugita/check-ia-ml) in your machine before continuing.
 
 ## :computer: Running locally
 1. Install the dependencies

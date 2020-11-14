@@ -8,7 +8,7 @@ export default function PhotoSlider({ images }){
             <figure>
                 {images.slice(0, 4).map((image, index) => {
                     return (
-                        <img key={index} src={image.image} alt={image.alt}></img>
+                        <img key={index} src={image.image.replace('w=1080', 'h=400')} alt={image.alt}></img>
                     )
                 })}
             </figure>
