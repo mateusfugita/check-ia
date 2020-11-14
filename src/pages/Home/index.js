@@ -105,36 +105,44 @@ export default function Home(){
     return (
         <>
             <Header />
-            <main className='questions-container'>
-                {questions.slice(0, questions.length -1).map((question, index) => {
-                    return (
-                        <Question key={index} question={question} index={index} handleClickFunction={setAnswerForQuestion}></Question>
-                    )
-                })}
-                <div className="question-block">
-                    <label>{questions[questions.length - 1]}</label>
-                    <div className='continent-answers'>
-                        {continents.map((value, index) => {
-                            return (
-                                <label key={index}>
-                                <input 
-                                    type='radio' 
-                                    key={index}
-                                    id={index + 1}
-                                    name={`q${questions.length - 1}`}
-                                    value={index + 1}
-                                    onClick={setAnswerForQuestion}
-                                /> {value}
-                                </label>
-                            )
-                        })}
+            <main>
+                <section className='about-container'>
+                    <h2>Está difícil escolher seu próximo destino de viagem?</h2>
+                    <p>Sabemos que não é uma tarefa fácil, ainda mais agora por causa da pandemia de COVID-19! Você só precisa responder 
+                        algumas perguntas para conhecermos melhor você e, com a nossa inteligência artificial, nós te ajudamos a 
+                        escolher o seu próximo destino (e esperamos que você goste!)</p>
+                </section>
+                <section className='questions-container'>
+                    {questions.slice(0, questions.length -1).map((question, index) => {
+                        return (
+                            <Question key={index} question={question} index={index} handleClickFunction={setAnswerForQuestion}></Question>
+                        )
+                    })}
+                    <div className="question-block">
+                        <label>{questions[questions.length - 1]}</label>
+                        <div className='continent-answers'>
+                            {continents.map((value, index) => {
+                                return (
+                                    <label key={index}>
+                                    <input 
+                                        type='radio' 
+                                        key={index}
+                                        id={index + 1}
+                                        name={`q${questions.length - 1}`}
+                                        value={index + 1}
+                                        onClick={setAnswerForQuestion}
+                                    /> {value}
+                                    </label>
+                                )
+                            })}
+                        </div>
                     </div>
-                </div>
-                {loading ? 
-                    <Loader></Loader>
-                    :
-                    <button className='send-answers' onClick={handleSubmit}>Enviar</button>
-                }
+                    {loading ? 
+                        <Loader></Loader>
+                        :
+                        <button className='send-answers' onClick={handleSubmit}>Enviar</button>
+                    }
+                </section>
             </main>
         </>
     )

@@ -1,3 +1,10 @@
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
 .questions-container {
     padding: 30px 10px;
     display: flex;
@@ -17,3 +24,31 @@
 .send-answers {
     margin-top: 16px;
 }
+
+.about-container {
+    padding: 30px 50px 5px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+}
+
+.about-container h2 {
+    color: #0358FD;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about-container p {
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}
+
+/* @media(min-width: 600px){
+    .about-container {
+        padding: 40px 80px;
+    }
+} */
